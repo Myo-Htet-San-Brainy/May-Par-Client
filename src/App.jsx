@@ -12,8 +12,9 @@ const App = () => {
       setLoading(true);
       const formData = new FormData(e.target);
       const question = formData.get("question");
-      const url = "http://localhost:5000/api/v1/aiAnswers";
-      const res = await axios.post(url, { question });
+      const localApiUrl = "http://localhost:5000/api/v1/aiAnswers";
+      const productionApiUrl = "https://may-par-api.onrender.com";
+      const res = await axios.post(productionApiUrl, { question });
       console.log(res.data.answer);
       if (res.data.answer === "") {
         throw new Error();
