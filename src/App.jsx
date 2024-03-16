@@ -14,7 +14,7 @@ const App = () => {
       const question = formData.get("question");
       const localApiUrl = "http://localhost:5000/api/v1/aiAnswers";
       const productionApiUrl =
-        "https://may-par-api.onrender.com/api/v1/aiAnswers";
+        "https://may-pr.as.r.appspot.com/api/v1/aiAnswers";
       const res = await axios.post(productionApiUrl, { question });
       console.log(res.data.answer);
       if (res.data.answer === "") {
