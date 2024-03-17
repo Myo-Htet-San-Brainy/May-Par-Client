@@ -3,6 +3,10 @@ import logo from "./assets/logo.png";
 import axios from "axios";
 import { toast } from "react-toastify";
 
+const localApiUrl = "http://localhost:5000/api/v1/aiAnswers";
+const appEngineUrl = "https://may-pr.as.r.appspot.com/api/v1/aiAnswers";
+const renderUrl = "https://may-par-api.onrender.com/api/v1/aiAnswers";
+
 const App = () => {
   const [aiAnswer, setAiAnswer] = useState("");
   const [loading, setLoading] = useState(false);
@@ -12,10 +16,7 @@ const App = () => {
       setLoading(true);
       const formData = new FormData(e.target);
       const question = formData.get("question");
-      const localApiUrl = "http://localhost:5000/api/v1/aiAnswers";
-      const productionApiUrl =
-        "https://may-pr.as.r.appspot.com/api/v1/aiAnswers";
-      const res = await axios.post(localApiUrl, { question });
+      const res = await axios.post(renderUrl, { question });
       console.log(res.data.answer);
       if (res.data.answer === "") {
         throw new Error();
