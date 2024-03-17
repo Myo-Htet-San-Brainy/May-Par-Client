@@ -15,7 +15,7 @@ const App = () => {
       const localApiUrl = "http://localhost:5000/api/v1/aiAnswers";
       const productionApiUrl =
         "https://may-pr.as.r.appspot.com/api/v1/aiAnswers";
-      const res = await axios.post(productionApiUrl, { question });
+      const res = await axios.post(localApiUrl, { question });
       console.log(res.data.answer);
       if (res.data.answer === "") {
         throw new Error();
