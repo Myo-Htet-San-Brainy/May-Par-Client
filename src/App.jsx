@@ -16,7 +16,7 @@ const App = () => {
       setLoading(true);
       const formData = new FormData(e.target);
       const question = formData.get("question");
-      const res = await axios.post(appEngineUrl, { question });
+      const res = await axios.post(renderUrl, { question });
       console.log(res.data.answer);
       if (res.data.answer === "") {
         throw new Error();
